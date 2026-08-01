@@ -10,6 +10,7 @@ def generate_flashcards(pdf_path: str, num_cards: int = 8) -> list[dict]:
 
     prompt = f"""Create {num_cards} flashcards from the following lecture notes.
 Each flashcard should have a "question" and an "answer".
+Do not use markdown formatting (no asterisks, no bold) in the question or answer text.
 
 Respond with ONLY valid JSON, in exactly this format, and nothing else
 (no markdown, no explanation, no code fences):

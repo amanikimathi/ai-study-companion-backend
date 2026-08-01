@@ -1,4 +1,5 @@
 from fastapi import FastAPI, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from summary import generate_summary
 from flashcards import generate_flashcards
 from mcqs import generate_mcqs
@@ -8,6 +9,13 @@ from store_in_chroma import store_document as store_in_chroma_db
 from models import SessionLocal, Document, StudyPack
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def read_root():

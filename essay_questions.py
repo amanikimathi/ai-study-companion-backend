@@ -10,6 +10,7 @@ def generate_essay_questions(pdf_path: str, num_questions: int = 3) -> list[dict
 
     prompt = f"""Create {num_questions} essay/short-answer questions from the following
 lecture notes, suitable for testing deeper understanding (not just recall).
+Do not use markdown formatting (no asterisks, no bold) anywhere in the output.
 
 For each question, also list 3-4 key points a strong answer should cover.
 
