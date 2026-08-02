@@ -1,3 +1,4 @@
+import asyncio
 from fastapi import FastAPI, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from summary import generate_summary
@@ -40,11 +41,14 @@ async def generate_full_pack(file: UploadFile):
     # Step 1: Store chunks in ChromaDB for future RAG chat
     store_in_chroma_db(temp_path)
 
-    # Step 2: Generate all content using our existing functions
-    summary = generate_summary(temp_path)
-    flashcards = generate_flashcards(temp_path)
-    mcqs = generate_mcqs(temp_path)
-    essay_qs = generate_essay_questions(temp_path)
+   # Step 2: Generate all content in PARALLEL instead of one-by-one,
+    # since these 4 calls don't depend on each other
+    summary, flashcards, mcqs, essay_qs = await asyncio.gather(
+        asyncio.to_thread(generate_summary, temp_path),
+        asyncio.to_thread(generate_flashcards, temp_path),
+        asyncio.to_thread(generate_mcqs, temp_path),
+        asyncio.to_thread(generate_essay_questions, temp_path),
+    )
 
     # Step 3: Open a database session (a temporary connection for these queries)
     db = SessionLocal()

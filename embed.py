@@ -18,6 +18,15 @@ def get_embedding(text: str) -> list[float]:
     )
     return result.embeddings[0].values
 
+def get_embeddings_batch(texts: list[str]) -> list[list[float]]:
+    """Converts MULTIPLE texts into vectors in one API call instead of
+    one call per text. Much faster for embedding many chunks at once."""
+    result = client.models.embed_content(
+        model="gemini-embedding-001",
+        contents=texts
+    )
+    return [embedding.values for embedding in result.embeddings]
+
 if __name__ == "__main__":
     # Step 1: Get the real PDF text and split it into chunks
     text = extract_text_from_pdf("my_lecture.pdf")
