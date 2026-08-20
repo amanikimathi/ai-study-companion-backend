@@ -2,8 +2,8 @@
 
 **Turn a single lecture PDF into a complete study kit — summary, flashcards, quiz questions, essay prompts, and an AI chat grounded in your own notes.**
 
-🔗 **Live demo:** https://ai-study-companion-smoky.vercel.app
-📦 **Frontend repo:** https://github.com/amanithomas12/ai-study-companion-frontend
+**Live demo:** https://ai-study-companion-smoky.vercel.app
+**Frontend repo:** https://github.com/amanithomas12/ai-study-companion-frontend
 
 ---
 
@@ -11,11 +11,11 @@
 
 Studying for one lecture usually means switching between several different AI tools — one for summaries, another for flashcards, another for practice questions. LectureLens consolidates all of that into one upload:
 
-- 📝 **Summary** — a concise overview of the lecture
-- 🗂️ **Flashcards** — interactive, flippable question/answer cards
-- 🎯 **Multiple choice questions** — with instant right/wrong feedback
-- 💭 **Essay questions** — with key points a strong answer should cover
-- 💬 **AI chat (RAG)** — ask questions about your own uploaded lecture. The AI only answers from content actually retrieved from your document — if the answer isn't in your notes, it says so honestly instead of guessing.
+-**Summary** — a concise overview of the lecture
+- **Flashcards** — interactive, flippable question/answer cards
+- **Multiple choice questions** — with instant right/wrong feedback
+- **Essay questions** — with key points a strong answer should cover
+- **AI chat (RAG)** — ask questions about your own uploaded lecture. The AI only answers from content actually retrieved from your document — if the answer isn't in your notes, it says so honestly instead of guessing.
 
 ## Tech stack
 
